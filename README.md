@@ -220,6 +220,12 @@ Open [http://localhost:5173](http://localhost:5173) in your browser to start cod
 
 ---
 
+## 👨‍💻 Author & Maintainer
+
+Developed and maintained by **Durgesh Bagul** under **BSquare Softwares**.
+
+---
+
 ## 📄 License
 
-This project is licensed under the BSquare Softwares License / MIT License. See the [LICENSE](LICENSE) file for more details.
+This project is licensed under the BSquare Softwares License. See the [LICENSE](LICENSE) file for more details.

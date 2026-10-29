@@ -113,7 +113,7 @@ const NavigationLinks = () => {
   const token = localStorage.getItem(LOCAL_STORAGE_TOKEN_KEY);
 
   useEffect(() => {
-    document.title = "Online IDE - Glad432";
+    document.title = "Online IDE - BSquare Softwares";
   }, []);
 
   return (

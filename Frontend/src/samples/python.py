@@ -30,7 +30,7 @@ square = lambda x: x * x
 if __name__ == "__main__":
     print("Welcome to the Online IDE!")
 
-    person = Person("Glad", 20)
+    person = Person("Durgesh", 20)
     person.greet()
 
     num_terms = 10
