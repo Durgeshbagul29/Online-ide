@@ -1,263 +1,225 @@
-# Online IDE
+# 💻 Online IDE
 
-An online IDE with secure login functionality that allows users to run code, generate new code, refactor existing code, and share it with anyone.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![React](https://img.shields.io/badge/Frontend-React%20%7C%20Vite%20%7C%20TailwindCSS-blue)](https://vitejs.dev/)
+[![Node.js](https://img.shields.io/badge/Backend-Node.js%20%7C%20Express-green)](https://nodejs.org/)
+[![Python](https://img.shields.io/badge/Backend-Python%20%7C%20Flask-3776AB)](https://www.python.org/)
+[![Monaco Editor](https://img.shields.io/badge/Editor-Monaco%20Editor-1f8b4c)](https://microsoft.github.io/monaco-editor/)
+[![Gemini AI](https://img.shields.io/badge/AI-Google%20Gemini-orange)](https://ai.google.dev/)
+
+An advanced, full-stack **Online Cloud IDE** featuring an integrated **Monaco Editor**, multi-language code execution, AI-powered code assistance (generation, explanation, refactoring), secure user authentication with OTP & Google OAuth, bot protection, and snippet sharing.
+
+---
+
+## 📸 Overview & Architecture
 
 ![Homepage](Images/Homepage.png)
 
-![Lines of code](https://sloc.xyz/github/gladw-in/online-ide)
+### System Architecture Diagram
+![System Architecture](Images/Diagram.png)
 
-## Diagram
+---
 
-![Diagram](Images/Diagram.png)
+## ✨ Features
 
-## Frontend Dependencies:
-- **[monaco-editor](https://microsoft.github.io/monaco-editor/)**: A fast code editor React wrapper, commonly used in applications like Visual Studio Code.
-- **[lodash](https://lodash.com/)**: A utility library with helpful functions for working with arrays, objects, and other JavaScript data types.
-- **[react](https://reactjs.org/)**: A JavaScript library for building declarative, component-based user interfaces.
-- **[react-icons](https://react-icons.github.io/react-icons/)**: A collection of customizable icons for React applications.
-- **[react-router](https://reactrouter.com/)**: A library for adding dynamic routing and navigation capabilities to React applications.
-- **[terser](https://github.com/terser/terser)**: A fast JavaScript minifier used with bundlers like Rollup to optimize file sizes.
-- **[sweetalert2](https://sweetalert2.github.io/)**: A customizable library for creating responsive, beautiful popup alerts in JavaScript applications.
-- **[sass](https://github.com/sass/sass)**: A modern version of Sass embedded for improved performance and support for advanced CSS features.
-- **[tailwindcss](https://tailwindcss.com/)**: A utility-first CSS framework designed for rapid styling with predefined classes.
-- **[tailwindcss-motion](https://github.com/romboHQ/tailwindcss-motion)**: A plugin for adding animations and transitions to Tailwind CSS projects.
-- **[vite](https://vitejs.dev/)**: A fast build tool and development server for modern frontend development, featuring hot module replacement (HMR).
-- **[react-oauth/google](https://www.npmjs.com/package/@react-oauth/google)**: A React wrapper for Google OAuth integration, providing easy authentication with Google accounts.
-- **[react-google-recaptcha-v3](https://www.npmjs.com/package/react-google-recaptcha-v3)**: A React component for integrating Google reCAPTCHA v3 to protect your application from spam and abuse.
-- **[@marsidev/react-turnstile](https://www.npmjs.com/package/@marsidev/react-turnstile)**: A React wrapper for Cloudflare Turnstile, used to protect forms and authentication flows from bots and abuse without impacting user experience.
+- ⚡ **Multi-Language Monaco Editor**: Syntax highlighting, autocomplete, code folding, bracket matching, and theme customization for 20+ programming languages.
+- 🌐 **Interactive Web Playground**: Real-time live preview for HTML, CSS, and JavaScript.
+- 🤖 **AI Assistant (Google Gemini)**: Generate new code snippets, explain complex algorithms, and refactor existing code with real-time streaming responses.
+- 🔒 **Comprehensive Authentication**:
+  - Email & Password registration with OTP email verification (Nodemailer).
+  - One-click Google OAuth 2.0 sign-in.
+  - Password strength verification (HaveIBeenPwned API integration).
+  - Rate limiting & anti-abuse via Cloudflare Turnstile & Google reCAPTCHA v3.
+- 🔗 **Snippet Sharing & Temp Files**: Generate shareable code links and manage temporary files with Redis caching.
+- 👤 **User Dashboard & Analytics**: Track usage stats, manage shared links, update account profiles, and change security credentials.
 
-## Backend Dependencies:
-- **[bcryptjs](https://github.com/dcodeIO/bcrypt.js)**: A JavaScript library for securely hashing passwords using the bcrypt algorithm.
-- **[cors](https://expressjs.com/en/resources/middleware/cors.html)**: A Node.js package that enables Cross-Origin Resource Sharing (CORS) for handling requests from different origins.
-- **[dotenv](https://dotenvx.com/)**: A module that loads environment variables from a `.env` file into `process.env`.
-- **[express](https://expressjs.com/)**: A minimal and flexible Node.js web framework for building web and mobile applications.
-- **[jsonwebtoken](https://github.com/auth0/node-jsonwebtoken)**: A library for creating and verifying JSON Web Tokens (JWT) to securely transmit data between parties.
-- **[mongoose](https://mongoosejs.com/)**: A MongoDB Object Data Modeling (ODM) library for Node.js, offering schema-based data modeling.
-- **[crypto](https://nodejs.org/api/crypto.html)**: A Node.js core module that provides cryptographic functionality, such as hashing, HMAC, and encryption.
-- **[nodemailer](https://nodemailer.com/)**: A module for sending emails from Node.js applications using SMTP, with support for attachments and HTML content.
-- **[path](https://nodejs.org/api/path.html)**: A Node.js core module for working with file and directory paths.
-- **[axios](https://axios-http.com/)**: A popular promise-based HTTP client for making requests from Node.js and browsers, often used for interacting with APIs.
-- **[google-auth-library](https://github.com/googleapis/google-auth-library-nodejs)**: A library for authenticating with Google services, used to handle OAuth 2.0 authorization in Node.js.
-- **[helmet](https://helmetjs.github.io/)**: Middleware that sets various HTTP security headers (HSTS, X‑Frame‑Options, etc.).
-- **[pino](https://getpino.io/)**: A very fast, low‑overhead JSON logger.
-- **[pino-http](https://github.com/pinojs/pino-http)**: Express middleware for automatic request logging with Pino.
-- **[@upstash/ratelimit](https://upstash.com/docs/ratelimit/overview)**: Distributed rate limiting using Upstash Redis.
-- **[@upstash/redis](https://upstash.com/docs/redis/overview)**: Redis client for Upstash, used for storing rate‑limit counters.
+---
 
-## Python Libraries:
-- **[google-genai](https://ai.google.dev/gemini-api/docs/quickstart?lang=python)**: A collection of Google APIs and tools for integrating generative AI models into applications.
-- **[python-dotenv](https://pypi.org/project/python-dotenv/)**: A Python library for loading environment variables from a `.env` file into the environment.
-- **[flask_cors](https://flask-cors.readthedocs.io/en/latest/)**: A Flask extension to handle Cross-Origin Resource Sharing (CORS) and allow requests from different origins.
-- **[flask](https://flask.palletsprojects.com/)**: A lightweight Python web framework used for building web applications.
-- **[os](https://docs.python.org/3/library/os.html)**: A module in Python providing a way of using operating system-dependent functionality, such as reading or writing to the file system.
-- **[re](https://docs.python.org/3/library/re.html)**: A module in Python used for working with regular expressions, allowing pattern matching and text manipulation.
-- **[redis](https://pypi.org/project/redis/)**: A Python client for interacting with Redis, an in-memory data structure store, used for caching, message brokering, and more.
-- **[uuid](https://docs.python.org/3/library/uuid.html)**: A Python module for generating universally unique identifiers (UUIDs), useful for creating unique keys or identifiers.
-- **[datetime](https://docs.python.org/3/library/datetime.html)**: A module in Python for manipulating dates and times, including working with time zones and formatting.
-- **[pyjwt](https://pyjwt.readthedocs.io/en/stable/)**: A library for encoding and decoding JSON Web Tokens (JWT), commonly used for authentication in web applications.
-- **[functools](https://docs.python.org/3/library/functools.html)**: A module in Python providing higher-order functions to work with functions and callable objects, such as `wraps`.
-- **[requests](https://docs.python-requests.org/en/latest/)**: A simple HTTP library for Python, used for making HTTP requests like GET, POST, PUT, DELETE, etc., with ease and flexibility.
-- **[logging](https://docs.python.org/3/library/logging.html)**: A built-in Python module that provides flexible logging of messages, helping to track application events, errors, and debug information.
-- **[flask-limiter](https://flask-limiter.readthedocs.io/)**: A Flask extension for rate limiting that supports Redis, memory, and other backends. It helps prevent API abuse by limiting the number of requests a client can make in a given time window.
-- **[json](https://docs.python.org/3/library/json.html)**: A built-in Python module for encoding and decoding JSON data, used for parsing request bodies and serializing responses.
-- **[urllib.parse](https://docs.python.org/3/library/urllib.parse.html)**: A built-in Python module for parsing URLs and percent‑encoding special characters, used to safely construct Redis connection strings.
+## 🛠️ Tech Stack & Dependencies
 
-## How to Set Up and Use
+### Frontend
+- **Framework & Bundler**: [React](https://reactjs.org/) + [Vite](https://vitejs.dev/)
+- **Code Editor**: [Monaco Editor](https://microsoft.github.io/monaco-editor/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/), [Tailwindcss-motion](https://github.com/romboHQ/tailwindcss-motion), [Sass](https://sass-lang.com/)
+- **Routing**: [React Router](https://reactrouter.com/)
+- **Authentication & Security**: [@react-oauth/google](https://www.npmjs.com/package/@react-oauth/google), [Cloudflare Turnstile](https://www.npmjs.com/package/@marsidev/react-turnstile), [Google reCAPTCHA v3](https://www.npmjs.com/package/react-google-recaptcha-v3)
+- **UI Alerts**: [SweetAlert2](https://sweetalert2.github.io/)
 
-To set up and run:
+### Backend Services
 
-### What You Need
+| Service | Directory | Tech Stack | Port | Purpose |
+|---|---|---|---|---|
+| **Auth & Account Service** | `Backend/Login` | Node.js, Express, MongoDB (Mongoose), Redis | `5000` | Auth, OTP, User profile, Shared links, Rate limiting |
+| **AI Assistant Service** | `Backend/Genai` | Python 3, Flask, Google Gemini SDK, Redis | `5001` | AI code generation, code explanation, refactoring |
+| **Temporary File Service** | `Backend/TempFile` | Python 3, Flask, Redis | `5002` | Temporary file storage, secure retrieval, file downloads |
+| **Web Client** | `Frontend` | React 18, Vite, Tailwind CSS | `5173` | Interactive user interface and code editor |
 
-- [Node.js](https://nodejs.org/) (latest version)
-- npm (usually comes with Node.js)
-- [Git](https://git-scm.com/) (version control system)
-- [Python](https://www.python.org/) (latest version)
-- [Pip](https://pip.pypa.io/en/stable/) Python package installer
+---
 
-## Clone the repository:
-```
-git clone --depth 1 https://github.com/gladw-in/online-ide.git
+## 🗂️ Project Structure
+
+```text
+online-ide/
+├── Backend/
+│   ├── Genai/           # Python Flask service for Google Gemini AI features
+│   ├── Login/           # Express/Node.js service for Auth, MongoDB & Accounts
+│   └── TempFile/        # Python Flask service for temporary code file storage
+├── Frontend/            # React + Vite + Tailwind CSS web application
+│   ├── public/          # Static assets & headers
+│   └── src/
+│       ├── components/  # CodeEditor, Editor, Header, Footer, Navigation
+│       ├── pages/       # Login, Register, Accounts, ForgotPassword
+│       ├── samples/     # Starter code templates for each language
+│       └── utils/       # API fetchers, modal handlers, security wrappers
+├── Images/              # UI screenshots and architecture diagram
+├── .gitignore
+├── LICENSE
+└── README.md
 ```
 
-## Backend Login
+---
 
-1. Go to the Backend/Login folder:
+## 🚀 Getting Started
+
+### Prerequisites
+
+Ensure you have the following installed on your machine:
+- [Node.js](https://nodejs.org/) (v18.x or higher) & [npm](https://www.npmjs.com/)
+- [Python](https://www.python.org/) (v3.9 or higher) & [pip](https://pip.pypa.io/)
+- [MongoDB](https://www.mongodb.com/) (Local or MongoDB Atlas connection)
+- [Redis](https://redis.io/) (Local or Upstash Redis instance)
+- [Git](https://git-scm.com/)
+
+---
+
+### Step 1: Clone the Repository
+
+```bash
+git clone https://github.com/Durgeshbagul29/Online-ide.git
+cd Online-ide
 ```
+
+---
+
+### Step 2: Configure Environment Variables
+
+Each subproject has an `.env.example` file. Create `.env` copies and fill in your credentials:
+
+#### 1. Backend Login (`Backend/Login/.env`)
+```bash
+cp Backend/Login/.env.example Backend/Login/.env
+```
+Key configuration settings:
+- `MONGO_URI`: Your MongoDB database connection string.
+- `JWT_SECRET`: Secret key for signing authentication tokens.
+- `GOOGLE_CLIENT_ID`: Google OAuth client ID.
+- `RECAPTCHA_SECRET_KEY`: Google reCAPTCHA v3 secret key.
+- `TURNSTILE_SECRET_KEY`: Cloudflare Turnstile secret key.
+- `OTP_EMAIL_USER` & `OTP_EMAIL_PASS`: SMTP credentials for OTP emails.
+- `REDIS_URL` & `REDIS_PASSWORD`: Redis connection details.
+- `FRONTEND_URL`: URL of the frontend (e.g. `http://localhost:5173`).
+- `PORT`: `5000`
+
+#### 2. Backend GenAI (`Backend/Genai/.env`)
+```bash
+cp Backend/Genai/.env.example Backend/Genai/.env
+```
+Key configuration settings:
+- `GOOGLE_API_KEY`: Google Gemini API key.
+- `GEMINI_MODEL`: e.g. `gemini-1.5-flash` or `gemini-1.5-pro`.
+- `JWT_SECRET`: Same JWT secret as the Login backend.
+- `REDIS_HOST`, `REDIS_PORT`, `REDIS_PASSWORD`: Redis credentials.
+- `ALLOWED_ORIGINS`: `http://localhost:5173`
+- `PORT`: `5001`
+
+#### 3. Backend TempFile (`Backend/TempFile/.env`)
+```bash
+cp Backend/TempFile/.env.example Backend/TempFile/.env
+```
+Key configuration settings:
+- `REDIS_HOST`, `REDIS_PORT`, `REDIS_PASSWORD`: Redis credentials.
+- `JWT_SECRET`: Shared JWT secret.
+- `TEMP_FILE_URL`: Base download/sharing URL.
+- `ALLOWED_ORIGINS`: `http://localhost:5173`
+- `PORT`: `5002`
+
+#### 4. Frontend (`Frontend/.env`)
+```bash
+cp Frontend/.env.example Frontend/.env
+```
+Key configuration settings:
+- `VITE_BACKEND_API_URL=http://localhost:5000`
+- `VITE_GEMINI_API_URL=http://localhost:5001`
+- `VITE_TEMP_SHARE_URL=http://localhost:5002`
+- `VITE_GOOGLE_CLIENT_ID`: Your Google OAuth Client ID
+- `VITE_RECAPTCHA_SITE_KEY`: Your Google reCAPTCHA v3 Site Key
+- `VITE_TURNSTILE_SITE_KEY`: Your Cloudflare Turnstile Site Key
+
+---
+
+### Step 3: Install Dependencies & Run
+
+#### 1. Authentication Service
+```bash
 cd Backend/Login
-```
-
-2. Install dependencies:
-```
 npm install
-```
-
-3. Make sure the **.env** file is present and properly configured.
-
-4. Run the server:
-```
 node server.js
 ```
+*Runs on `http://localhost:5000`*
 
-### Note: 
-Ensure that **Genai** and **TempFile** are assigned different ports.
-
-*You can modify the port by:*
-```python
-if __name__ == "__main__":
-    app.run(debug=False, port = <port>)
-```
-
-## GenAi
-
-1. Go to the Backend/Genai folder:
-```
+#### 2. AI Code Generation Service
+```bash
 cd Backend/Genai
-```
-
-2. Install packages:
-```
 pip install -r requirements.txt
-```
-
-3. Make sure the **.env** file is present and properly configured.
-
-4. Run it:
-```
 python app.py
 ```
+*Runs on `http://localhost:5001`*
 
-## TempFile
-
-1. Go to the Backend/TempFile folder:
-```
+#### 3. Temporary File Service
+```bash
 cd Backend/TempFile
-```
-
-2. Install packages:
-```
 pip install -r requirements.txt
-```
-
-3. Make sure the **.env** file is present and properly configured.
-
-4. Run it:
-```
 python app.py
 ```
+*Runs on `http://localhost:5002`*
 
-## Frontend
-
-1. Go to the Frontend folder:
-```
-cd ./Frontend
-```
-
-2. Install dependencies:
-```
+#### 4. Frontend Application
+```bash
+cd Frontend
 npm install
-```
-
-3. Make sure the **.env** file is present and properly configured.
-
-### For Development
-
-To start working on the project:
-
-```
 npm run dev
 ```
+*Runs on `http://localhost:5173`*
 
-This starts the development server. Open your web browser and go to `http://localhost:5173` (or the address shown in your terminal) to see the app.
+Open [http://localhost:5173](http://localhost:5173) in your browser to start coding!
 
-### Building for Release
+---
 
-To make the project ready for release:
+## 🖼️ Screenshots
 
-```
-npm run build
-```
+<details>
+<summary><b>Click to expand full screenshots gallery</b></summary>
+<br>
 
-This creates optimized files in the `dist` folder.
+| View | Screenshot |
+|---|---|
+| **Web Preview (HTML / CSS / JS)** | ![HTML CSS JS](Images/HtmlCssJs.png) |
+| **Python** | ![Python](Images/Python.png) |
+| **JavaScript** | ![JavaScript](Images/Javascript.png) |
+| **TypeScript** | ![Typescript](Images/Typescript.png) |
+| **C / C++** | ![C++](Images/Cplusplus.png) |
+| **Java** | ![Java](Images/Java.png) |
+| **Go** | ![Go](Images/Go.png) |
+| **Rust** | ![Rust](Images/Rust.png) |
+| **SQL & Database** | ![SQL](Images/Sql.png) |
+| **MongoDB** | ![MongoDB](Images/MongoDB.png) |
+| **User Dashboard** | ![Accounts](Images/Accounts.png) |
+| **Authentication Flow** | ![Login](Images/Login.png) |
 
-### Looking at the Release Version
+</details>
 
-To see how the release version looks:
+---
 
-```
-npm run preview
-```
+## 📄 License
 
-# Screenshots
-
-### Homepage
-![Homepage](Images/Homepage.png)
-
-### HTML, CSS, JS
-![HTML, CSS, JS](Images/HtmlCssJs.png)
-
-### Python
-![Python](Images/Python.png)
-
-### JavaScript
-![JavaScript](Images/Javascript.png)
-
-### C
-![C](Images/C.png)
-
-### C++
-![C++](Images/Cplusplus.png)
-
-### Java
-![Java](Images/Java.png)
-
-### C#
-![C#](Images/CSharp.png)
-
-### Rust
-![Rust](Images/Rust.png)
-
-### Go
-![Go](Images/Go.png)
-
-### Verilog
-![Verilog](Images/Verilog.png)
-
-### SQL
-![SQL](Images/Sql.png)
-
-### MongoDB
-![MongoDB](Images/MongoDB.png)
-
-### Swift
-![Swift](Images/Swift.png)
-
-### Typescript
-![Typescript](Images/Typescript.png)
-
-### Dart
-![Dart](Images/Dart.png)
-
-### Kotlin
-![Kotlin](Images/Kotlin.png)
-
-### Perl
-![Perl](Images/Perl.png)
-
-### Scala
-![Scala](Images/Scala.png)
-
-### Julia
-![Julia](Images/Julia.png)
-
-### Accounts
-![Accounts](Images/Accounts.png)
-
-### Login
-![Login](Images/Login.png)
-
-### Register
-![Register](Images/Register.png)
-
-## License
-
-You can use this under the MIT License. See [LICENSE](LICENSE) for more details.
+This project is licensed under the BSquare Softwares License / MIT License. See the [LICENSE](LICENSE) file for more details.
